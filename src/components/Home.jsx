@@ -2,6 +2,7 @@ import Carrosel from "./Carrosel";
 import Footer from "./Footer";
 import Navbar from "./Navbar";  
 import Cards from "./Cards";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function Home() {
     return (
