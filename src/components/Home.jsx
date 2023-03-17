@@ -1,4 +1,5 @@
 import Carrosel from "./Carrosel";
+import Footer from "./Footer";
 import Navbar from "./Navbar";
 
 function Home() {
@@ -6,6 +7,7 @@ function Home() {
         <>       
          <Navbar></Navbar>
          <Carrosel></Carrosel>
+         <Footer></Footer>
         </>
     )
 }
