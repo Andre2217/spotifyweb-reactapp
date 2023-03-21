@@ -15,9 +15,18 @@ function Home() {
             <Carrosel />
             <Cards />
           </div>
+          <div>
+            <br></br>
+            <br></br>
+          </div>
           <div className="home-faq">
             <FAQ />
           </div>
+          <div>
+            <br></br>
+            <br></br>
+          </div>
+          
           <div className="home-footer">
             <Footer />
           </div>

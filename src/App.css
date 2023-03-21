@@ -192,6 +192,7 @@ button {
   outline: none;
   transition: background-color 0.6s ease;
   margin-bottom: 10px;
+  
   }
   
 .active, .accordion:hover {
@@ -218,4 +219,10 @@ button {
 .home-faq {
   max-width: 850px;
   width: 100%;
+  margin-left: 350px;
   }
+
+
+h2 {
+  font-weight: bold;
+}
