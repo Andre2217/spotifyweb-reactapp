@@ -1,7 +1,7 @@
 
 function Navbar() {
   return(
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top ">
     <div class="container">
       <a class="navbar-brand" href="./index.html">
         {/* <img src="./imgs/logo1.png" alt="..." height="70"> */}

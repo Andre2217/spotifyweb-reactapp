@@ -26,6 +26,14 @@
   padding: 20px;
 }
 
+
+/* header */
+
+.logo-header {
+  margin-left: 50px;
+}
+
+
 /* cards */
 
 .cards-container {
@@ -78,8 +86,10 @@ p {
 
 /* navbar */
 
+
 .navbar {
   height: 80px;
+  width:100%;
 }
 
 .navbar-brand {
@@ -87,7 +97,7 @@ p {
 }
 
 .navbar-nav {
-  margin-right: 0;
+  margin-right: 80%;
 }
 
 .nav-link {
@@ -223,3 +233,5 @@ button {
   justify-content: center;
   margin: auto;
 }
+
+
