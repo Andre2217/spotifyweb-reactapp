@@ -177,3 +177,45 @@ button {
 .fa-brands:hover {
   color: #f8f9fa;
 }
+
+
+/* FAQ */
+
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: background-color 0.6s ease;
+  margin-bottom: 10px;
+  }
+  
+.active, .accordion:hover {
+  background-color: #ccc;
+  }
+  
+.content {
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.6s ease;
+  }
+  
+.active + .content {
+  max-height: 500px;
+  }
+
+.accordion h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+    }
+     
+.home-faq {
+  max-width: 850px;
+  width: 100%;
+  }

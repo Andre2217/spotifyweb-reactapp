@@ -3,7 +3,7 @@ import Footer from "./Footer";
 import Navbar from "./Navbar";  
 import Cards from "./Cards";
 import Header from "./Header";
-
+import FAQ from "../FAQ/FAQ"
 
 function Home() {
     return (
@@ -14,6 +14,9 @@ function Home() {
           <div className="home-content">
             <Carrosel />
             <Cards />
+          </div>
+          <div className="home-faq">
+            <FAQ />
           </div>
           <div className="home-footer">
             <Footer />
