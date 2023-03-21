@@ -3,7 +3,7 @@ function Script(){
         <div>
              <script> //Script JS para FAQ
                 let respostas=document.querySelectorAll(".accordion");
-                    respostas.forEach((event)=>{
+                    respostas.forEach((event)={">"}{
                     event.addEventListener('click',()=>{
                         if(event.classList.contains("active")){
                             event.classList.remove("active");
