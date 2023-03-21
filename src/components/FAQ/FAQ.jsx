@@ -20,7 +20,7 @@ function FAQ() {
       <Accordion.Item eventKey="2">
         <Accordion.Header>Quais os tipos de Planos?</Accordion.Header>
         <Accordion.Body>
-        São os Planos: TocaPlay Gold com todas funcionalidades liberadas, TocaPlay Family pra toda sua família curti o melhor das atualidades da música ou TocaPlay PRO para utilização profissional podendo fazer playback.
+        São os Planos: TocaPlay Gold com todas funcionalidades liberadas, TocaPlay Family pra toda sua família curtir o melhor das atualidades da música ou TocaPlay PRO para utilização profissional podendo fazer playback.
         </Accordion.Body>
       </Accordion.Item>
       <Accordion.Item eventKey="3">
