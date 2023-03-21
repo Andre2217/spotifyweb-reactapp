@@ -4,7 +4,6 @@ import Navbar from "./Navbar";
 import Cards from "./Cards";
 import Header from "./Header";
 import FAQ from "../FAQ/FAQ";
-//import { BrowserRouter as  Switch, Route } from 'react-router-dom';
 
 
 function Home() {
