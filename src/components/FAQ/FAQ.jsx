@@ -6,7 +6,7 @@ function FAQ() {
   return (
     <>
       <div>
-          <h2>Perguntas Frequentes</h2>
+          <h2 className='faq-title'>Perguntas Frequentes</h2>
       <Accordion>
         <Accordion.Item eventKey="0">
           <Accordion.Header>Como faço meu Cadastro?</Accordion.Header>

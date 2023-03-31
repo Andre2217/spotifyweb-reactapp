@@ -3,7 +3,7 @@ import data from '../../data/data';
 
 function PlaylistPage() {
     let { id } = useParams();
-    let playlist = data.find(p => p.id == id);
+    let playlist = data.find(p => p.id === id);
     
     return (
         <div>

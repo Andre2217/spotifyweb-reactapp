@@ -4,7 +4,6 @@
   margin: 0 auto;
   min-height: 100vh;
   display: flex;
-  align-items: center;
   justify-content: center;
 }
 
@@ -198,7 +197,29 @@ button {
   margin-left: 350px;
   }
 
+.faq-title {
+  margin-left: 40%;
+}
 
+.faq-container {
+    width: 100%;
+    justify-content: center;
+  }
+  
+ .faq-header {
+    margin: 0 auto;
+    padding: 50px 0;
+  }
+  
+  .faq-footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+  }
+
+  .faq-content{
+    margin-bottom: 50px;
+  }
 
 /*  carrossel */
 
@@ -240,3 +261,53 @@ button {
 }
 
 
+/*  cadastro  */
+
+.cadastro-container{
+  width: 100%;
+  justify-content: center;
+}
+
+
+.cadastro-header {
+  margin: 0 auto;
+  padding: 50px 0;
+  
+  
+}
+
+.cadastro-footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+}
+
+.cadastro-content{
+
+}
+
+
+/* login */ 
+
+.login-container{
+  width: 100%;
+  justify-content: center;
+}
+
+
+.login-header {
+  margin: 0 auto;
+  padding: 50px 0;
+  
+  
+}
+
+.login-footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+}
+
+.login-content{
+
+}
