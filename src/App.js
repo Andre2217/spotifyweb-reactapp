@@ -6,8 +6,6 @@ import CadastroPage from './components/Cadastro/CadastroPage';
 import LoginPage from './components/Login/LoginPage';
 import { BrowserRouter as Router,Routes, Route} from "react-router-dom";
 
-
-
 function App() {
   return (
     <div className="App">

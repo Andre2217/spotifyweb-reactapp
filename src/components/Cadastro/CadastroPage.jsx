@@ -1,5 +1,5 @@
 import React from 'react';
-// import Cadastro from '../Cadastro/Cadastro';
+import Cadastro from '../Cadastro/Cadastro';
 import Header from '../home/Header';
 import Navbar from '../home/Navbar';
 import Footer from '../home/Footer';
@@ -13,7 +13,7 @@ function CadastroPage() {
                 <Navbar/>
             </div>
             <div className='cadastro-content'>
-                cadastro
+                <Cadastro/>
             </div>
 
             <div className="cadastro-footer">
