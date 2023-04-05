@@ -3,7 +3,7 @@ import data from '../../data/data';
 
 function PlaylistPage() {
     let { id } = useParams();
-    let playlist = data.find(p => p.id == id);
+    let playlist = data.find(p => p.id === id);
     const start = (track) => {
         const audio = new Audio(track);
         audio.play();

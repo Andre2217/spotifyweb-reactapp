@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function Cadastro() {
+
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -10,8 +11,13 @@ function Cadastro() {
 
   function handleSubmit(event) {
     event.preventDefault();
+
+    console.log(email);
+    console.log(password);
     navigate('/login');
   }
+
+  
 
 
     return (
