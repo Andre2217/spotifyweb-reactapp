@@ -17,8 +17,6 @@ function Cadastro() {
     navigate('/login');
   }
 
-  
-
 
     return (
         <div className="container">
@@ -87,7 +85,7 @@ function Cadastro() {
                     required
                   />
                   <label className="form-check-label" htmlFor="acceptTerms">
-                    Eu aceito os termos de compromisso
+                    Eu aceito os <a href="https://www.spotify.com/br-pt/legal/end-user-agreement/" target="_blank" rel="noopener noreferrer">termos de compromisso</a>
                   </label>
                 </div>
                 <div className="form-group form-check">
