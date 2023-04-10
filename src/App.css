@@ -206,6 +206,8 @@ button {
 .faq-container {
     width: 100%;
     justify-content: center;
+    background-color: #f2f2f2;
+
   }
   
  .faq-header {
@@ -269,6 +271,8 @@ button {
 .cadastro-container{
   width: 100%;
   justify-content: center;
+  background-color: #f2f2f2;
+
 }
 
 .cadastro-content{
@@ -300,6 +304,8 @@ button {
 .login-container{
   width: 100%;
   justify-content: center;
+  background-color: #f2f2f2;
+
 }
 
 
