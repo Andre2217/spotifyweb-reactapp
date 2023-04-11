@@ -17,6 +17,7 @@ function Carrosel() {
 
   return (
     <div className="carrosel-content">
+    
       <motion.div ref={carrosel} className='carrosel' whileTap={{cursor: "grabbing"}}>
           <motion.div 
           className='inner'
