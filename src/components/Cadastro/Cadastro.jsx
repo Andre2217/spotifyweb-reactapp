@@ -26,7 +26,9 @@ function Cadastro() {
     setStyles('');
     setError('');
     setError('Cadastro Realizado')
-    navigate();
+    setTimeout(() => {
+      navigate('/');
+    }, 3000);
     }
   
     return (
