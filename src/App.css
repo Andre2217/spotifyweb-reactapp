@@ -337,3 +337,9 @@ button {
   font-size: x-small;
 }
 
+.item img {
+  max-width: 400px;
+  max-height: 500px;
+}
+
+
