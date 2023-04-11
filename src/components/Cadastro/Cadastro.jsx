@@ -35,7 +35,7 @@ function Cadastro() {
             <div className="col-md-6">
               
               <form onSubmit={handleSubmit}>
-                <h1 className="text-center mb-4">Cadastro</h1>
+                <h1 className="text-center mb-4">Crie sua Conta TocaPlay</h1>
                 
                 
                 <div className="form-group mb-3">
