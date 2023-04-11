@@ -19,7 +19,13 @@ function Cadastro() {
       setError('Os e-mails não correspondem');
       return;
     }
-      setError('Cadastro Realizado');
+    setEmail('');
+    setEmailConfirmacao('');
+    setUsername('');
+    setPassword('');
+    setStyles('');
+    setError('');
+    setError('Cadastro Realizado')
     navigate();
     }
   
@@ -134,7 +140,7 @@ function Cadastro() {
                 
                 <div className="text-center mt-4">
                   <button type="submit" className="btn btn-primary">Cadastrar</button>
-                  <p>{error}</p>
+                  {error && <p className={error.includes('não correspondem') ? 'error-message' : 'success-message'}>{error}</p>}
                 </div>
               </form>
               <br></br>
