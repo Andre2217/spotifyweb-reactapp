@@ -13,6 +13,8 @@ function Home() {
         <Navbar />
         <div className="home-content">
           <Carrosel />
+          <br></br>
+          <br></br>
           <Cards />
         </div>
         <div className="home-footer">
