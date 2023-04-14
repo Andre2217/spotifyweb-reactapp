@@ -7,9 +7,6 @@ function Playlist() {
     return (
         <>
         <div className='cadastro-container'>
-            <div className="cadastro-header">
-                <Header/>
-            </div>
             <div>
                 <PlaylistPage/>
             </div>
