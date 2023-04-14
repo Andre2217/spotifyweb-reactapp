@@ -28,7 +28,7 @@ function Carrosel() {
               <motion.div className='item' key={image}>
                   <img src ={image.capa} alt="texto alt"/>
                 <Link to={`/playlist/${image.id}`}>
-                  <button className='botao-playlist'></button>
+                  <button className='botao-playlist'>Acessar Playlist</button>
                 </Link>
               </motion.div>
               ))}

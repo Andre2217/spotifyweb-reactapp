@@ -64,7 +64,7 @@ function Login() {
         </Form.Group>
         <br/><br/>
         <Form.Group controlId="formBasicPassword">
-          <Form.Label>Senha</Form.Label>
+          <Form.Label className='password-label'>Senha</Form.Label>
           <Form.Control type="password" placeholder="Insira sua senha" required/>
         </Form.Group>
         <br/><br/>

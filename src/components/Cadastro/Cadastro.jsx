@@ -41,7 +41,7 @@ function Cadastro() {
                 
                 
                 <div className="form-group mb-3">
-                  <label htmlFor="email">Email</label>
+                  <label htmlFor="email" className='email-cadastro'>Email</label>
                   <input
                     type="email"
                     className="form-control"
@@ -55,7 +55,7 @@ function Cadastro() {
                 
                 
                 <div className="form-group mb-3">
-                  <label htmlFor="email-confirmacao">Confirme seu Email</label>
+                  <label htmlFor="email-confirmacao" class='email-confirmacao'>Confirme seu Email</label>
                   <input
                     type="email"
                     className="form-control"
@@ -69,7 +69,7 @@ function Cadastro() {
                 
                 
                 <div className="form-group mb-3">
-                  <label htmlFor="username">Nome de usuário</label>
+                  <label htmlFor="username" className='username-cadastro'>Nome de usuário</label>
                   <input
                     type="text"
                     className="form-control"
@@ -83,7 +83,7 @@ function Cadastro() {
                
                 
                 <div className="form-group mb-3">
-                  <label htmlFor="password">Senha</label>
+                  <label htmlFor="password" className='password-cadastro'>Senha</label>
                   <input
                     type="password"
                     className="form-control"
@@ -97,7 +97,7 @@ function Cadastro() {
                 
                 
                 <div className="form-group mb-3">
-                  <label htmlFor="styles">Estilos musicais favoritos</label>
+                  <label htmlFor="styles" className='styles-cadastro'>Estilos musicais favoritos</label>
                   <select
                     className="form-control"
                     id="styles"
@@ -114,7 +114,7 @@ function Cadastro() {
                   </select>
                 </div>
                 
-                
+                <br></br><br></br>
                 <div className="form-group form-check mb-3">
                   <input
                     type="checkbox"

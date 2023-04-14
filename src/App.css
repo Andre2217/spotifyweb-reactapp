@@ -231,17 +231,22 @@ button {
 
 .inner{
   display: flex;
+  text-decoration: none;
 }
 
 .item{
-  min-height: 200px;
+  min-height: 250px; 
   min-width: 400px;
   padding: 14px;
+  text-decoration: none;
+  margin-bottom: 35px;
 }
 
+
 .item a {
-  display: flex;
+  display: flex; 
   height: auto;
+  text-decoration: none;
 }
 
 .item img{
@@ -249,11 +254,14 @@ button {
   height: 90%;
   border-radius: 12px;
   pointer-events: none;
+  margin-bottom: 5px;
+  text-decoration: none;
 }
 
 .carrosel{
   cursor: grab;
   overflow: hidden;
+  text-decoration: none;
 }
 
 .carrosel-content{
@@ -263,16 +271,38 @@ button {
   align-items: center;
   justify-content: center;
   margin: auto;
+  text-decoration: none;
 }
 
-.botao-playlist{
-  background-color: #dacbcb;
+.botao-playlist {
+  background-color: #FD3F0E;
   border: none;
-  padding: 15px;
-  width: 100%;
-  margin-top: auto;
-  border-radius: 8px;
+  border-radius: 40px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  margin-left: 25%;
 }
+
+.botao-playlist:hover {
+  background-color: #fff;
+  color: #FD3F0E;
+  cursor: pointer;
+  border: 2px solid #FD3F0E;
+}
+
+/* playlist */
+
+
+.item img {
+  max-width: 400px;
+  max-height: 500px;
+}
+
 
 
 /*  cadastro  */
@@ -300,10 +330,12 @@ button {
   padding: 20px;
 }
 
-
-
 .form-check-input {
   box-shadow: 0px 1.5px 8px rgb(0, 0, 0);
+}
+
+.form-check-label {
+  font-weight:500;
 }
 
 .success-message {
@@ -314,7 +346,11 @@ button {
   color: red;
 }
 
-
+.email-cadastro, .email-confirmacao, .username-cadastro, .password-cadastro, .styles-cadastro {
+  color: #FD3F0E;
+  font-weight: bold;
+  font-size: large;
+}
 
 /* login */ 
 
@@ -345,18 +381,19 @@ button {
 
 
 .email-label {
-  color: #e97e27;
+  color: #FD3F0E;
+  font-weight: bold;
+  font-size: large;
+}
+
+.password-label {
+  color: #FD3F0E;
   font-weight: bold;
   font-size: large;
 }
 
 .text-muted {
   font-size: x-small;
-}
-
-.item img {
-  max-width: 400px;
-  max-height: 500px;
 }
 
 
