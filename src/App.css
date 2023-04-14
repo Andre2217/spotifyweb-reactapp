@@ -265,6 +265,15 @@ button {
   margin: auto;
 }
 
+.botao-playlist{
+  background-color: #dacbcb;
+  border: none;
+  padding: 15px;
+  width: 100%;
+  margin-top: auto;
+  border-radius: 8px;
+}
+
 
 /*  cadastro  */
 
