@@ -1,14 +1,19 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import data from '../../data/data';
 import logo from '../../imgs/logo1.png';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 function PlaylistPage() {
   let { id } = useParams();
-  let playlist = data.find(p => p.id == id);
 
   const [currentTrack, setCurrentTrack] = useState(null);
+  const [playlist, setPlaylist] = useState({musicas:[]})
+
+  useEffect(() =>{
+    axios.get(`http://localhost:3001/playlists/${id}`)
+      .then((res)=>setPlaylist(res.data))
+  }, [])
 
   const start = (track) => {
     if (currentTrack) {
@@ -58,7 +63,7 @@ function PlaylistPage() {
 
           <h1>{playlist.nome}</h1>
           <ul>
-            {playlist.musica.map(musica => (
+            {playlist.musicas.map(musica => (
               <li key={musica.id}>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                   <span>{musica.nome}</span>

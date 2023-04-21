@@ -1,8 +1,7 @@
 import {useState, useEffect, useRef} from 'react';
 import {motion} from 'framer-motion';
 import { Link } from 'react-router-dom';
-import data from '../../data/data';
-
+import axios from 'axios';
 
 
 function Carrosel() {
@@ -10,10 +9,16 @@ function Carrosel() {
   const carrosel = useRef();
   const [width, setWidth] = useState(0)
 
+  const [playlists, setPlaylists] = useState([])
+
   useEffect(() =>{
-    //console.log(carrosel.current?.scrollWidth, carrosel.current?.offsetWidth)
     setWidth(carrosel.current?.scrollWidth - carrosel.current?.offsetWidth)
+
+    axios.get('http://localhost:3001/playlists')
+      .then((res)=>setPlaylists(res.data))
   }, [])
+
+
 
   return (
     <div className="carrosel-content">
@@ -24,7 +29,7 @@ function Carrosel() {
           drag="x"
           dragConstraints={{right:0, left: -width}}
           >
-            {data.map(image => (
+            {playlists.map(image => (
               <motion.div className='item' key={image}>
                   <img src ={image.capa} alt="texto alt"/>
                 <Link to={`/playlist/${image.id}`}>
