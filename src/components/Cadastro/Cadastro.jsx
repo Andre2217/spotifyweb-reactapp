@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+
 
 function Cadastro() {
 
@@ -29,6 +31,11 @@ function Cadastro() {
     setTimeout(() => {
       navigate('/');
     }, 3000);
+    axios.post('http://localhost:3001/usuarios',{
+      nome:username,
+      email:email,
+      senha:password
+    })
     }
   
     return (
