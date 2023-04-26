@@ -12,7 +12,7 @@ function Login() {
   function handleSubmit(e){
     e.preventDefault();
 
-    axios.get(`http://localhost:3001/usuarios?email=${email}`).then( (resultado) => {
+    axios.get(`http://localhost:3001/usuarios?email=${email}`).then((resultado) => {
       const usuario = resultado.data[0];
 
       if(usuario.senha !== senha)
@@ -29,7 +29,7 @@ function Login() {
         <div className="col-sm-8 col-md-6 mx-auto">
           <div className="card card-custom">
             <div className="card-body">
-              <h5 className="card-title">Login</h5>
+              <h5 className="card-title login-title">Login</h5>
               <form onSubmit={handleSubmit}>
                 <div className="form-group">
                   <label htmlFor="email" className="email-label">E-mail</label>
