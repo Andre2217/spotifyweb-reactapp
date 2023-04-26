@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import React, { useState } from 'react';
-//import axios from 'axios';
+import axios from 'axios';
 
 
 function Login() {
@@ -12,8 +12,16 @@ function Login() {
   function handleSubmit(e){
     e.preventDefault();
 
-    
+    axios.get(`http://localhost:3001/usuarios?email=${email}`).then( (resultado) => {
+      const usuario = resultado.data[0];
+
+      if(usuario.senha !== senha)
+        return 
+
+      localStorage.setItem("usuarioLogado", JSON.stringify(usuario));
+    });
   }
+
 
   return (
     <div className="container mt-3">
