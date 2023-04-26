@@ -7,7 +7,7 @@ function Login() {
 
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
-
+  const [error, setError] = useState('');
   
   function handleSubmit(e){
     e.preventDefault();
@@ -15,8 +15,13 @@ function Login() {
     axios.get(`http://localhost:3001/usuarios?email=${email}`).then((resultado) => {
       const usuario = resultado.data[0];
 
-      if(usuario.senha !== senha)
+      if(!usuario || usuario.senha !== senha) {
+        setError("Usuario ou senha invalido");
         return 
+      }
+      setError('');
+      setEmail('');
+      setSenha('');
 
       localStorage.setItem("usuarioLogado", JSON.stringify(usuario));
     });
@@ -48,6 +53,7 @@ function Login() {
                 <br></br>
 
                 <button type="submit" className="btn btn-primary">Entrar</button>
+                <p>{error}</p>
               </form>
 
 
