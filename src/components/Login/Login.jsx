@@ -1,46 +1,58 @@
 import { Link } from 'react-router-dom';
-import { Form, Button, Container } from 'react-bootstrap';
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState } from 'react';
+//import axios from 'axios';
 
 
 function Login() {
 
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
 
-  useEffect(() =>{
-    const user = axios.get(`http://localhost:3001/usuarios?email=${email}`)
+  
+  function handleSubmit(e){
+    e.preventDefault();
+
     
-  }, [])
+  }
 
   return (
-    <Container className="mt-3">
-      <Form>
-        <Form.Group controlId="formBasicEmail">
-          <Form.Label className='email-label'>E-mail</Form.Label>
-          <Form.Control type="email" placeholder="Insira seu e-mail cadastrado" value={email}
-                    onChange={(e) => setEmail(e.target.value)} required/>
-          <Form.Text className="text-muted">
-            Nós nunca compartilharemos seus dados com ninguém.
-          </Form.Text>
-        </Form.Group>
-        <br/><br/>
-        <Form.Group controlId="formBasicPassword">
-          <Form.Label className='password-label'>Senha</Form.Label>
-          <Form.Control type="password" placeholder="Insira sua senha" required/>
-        </Form.Group>
-        <br/><br/>
-        <Button variant="primary" type="submit">
-          Entrar
-        </Button>
-        <br/>
-        <br/>
-        <Link to="/cadastro" className="ml-3">
-          Não tem conta? Cadastre-se!
-        </Link>
-      </Form>
-    </Container>
-  );
-}
+    <div className="container mt-3">
+      <div className="row">
+        <div className="col-sm-8 col-md-6 mx-auto">
+          <div className="card card-custom">
+            <div className="card-body">
+              <h5 className="card-title">Login</h5>
+              <form onSubmit={handleSubmit}>
+                <div className="form-group">
+                  <label htmlFor="email" className="email-label">E-mail</label>
+                  <input type="email" className="form-control" id="email" aria-describedby="emailHelp" placeholder="Insira seu e-mail cadastrado" value={email} onChange={(e) => setEmail(e.target.value)} required />
+                  <small id="emailHelp" className="form-text text-muted">Nós nunca compartilharemos seus dados com ninguém.</small>
+                </div>
+
+                <br></br>
+
+                <div className="form-group">
+                  <label htmlFor="password" className="password-label">Senha</label>
+                  <input type="password" className="form-control" id="password" placeholder="Insira sua senha" value={senha} onChange={(e) => setSenha(e.target.value)} required />
+                </div>
+
+                <br></br>
+                <br></br>
+
+                <button type="submit" className="btn btn-primary">Entrar</button>
+              </form>
+
+
+              <div className="mt-3">
+                <Link to="/cadastro">Não tem conta? Cadastre-se!</Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    );
+  }
+
 
 export default Login;

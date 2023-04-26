@@ -362,6 +362,15 @@ button {
 
 }
 
+.card-custom {
+  width: 500px; /* Largura personalizada */
+  height: 400px; /* Altura personalizada */
+}
+
+.card-title {
+  margin-left: 40%;
+}
+
 
 .login-header {
   margin: 0 auto; 
