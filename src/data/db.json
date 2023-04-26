@@ -310,7 +310,12 @@
       "nome": "Andre28ap",
       "email": "andre28ap@gmail.com",
       "senha": "1234",
-      "playlists": [],
+      "playlits": [
+        {
+          "nome": "x",
+          "musicas": "y"
+        }
+      ],
       "id": 1
     },
     {
@@ -347,6 +352,18 @@
       "senha": "45678",
       "playlists": [],
       "id": 6
+    },
+    {
+      "nome": "facaLogin",
+      "email": "faca@login.com",
+      "senha": "1234",
+      "playlits": [
+        {
+          "nome": "x",
+          "musicas": "y"
+        }
+      ],
+      "id": 7
     }
   ],
   "musicas": [
