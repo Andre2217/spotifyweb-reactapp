@@ -310,13 +310,27 @@
       "nome": "Andre28ap",
       "email": "andre28ap@gmail.com",
       "senha": "1234",
+      "playlists": [],
       "id": 1
     },
     {
       "nome": "eueueueu",
       "email": "aop@getm.em",
       "senha": "1234",
+      "playlists": [],
       "id": 2
+    },
+    {
+      "nome": "alisson",
+      "email": "a@a.com",
+      "senha": "9876",
+      "id": 3
+    },
+    {
+      "nome": "Berenice",
+      "email": "b@b.com",
+      "senha": "4321",
+      "id": 4
     }
   ],
   "musicas": [

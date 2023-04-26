@@ -4,6 +4,7 @@ import FAQPage from './components/FAQ/FAQPage';
 import CadastroPage from './components/Cadastro/CadastroPage';
 import LoginPage from './components/Login/LoginPage';
 import Playlist from './components/Playlist/Playlist';
+import PerfilPage from './components/Perfil/PerfilPage';
 import { BrowserRouter as Router,Routes, Route} from "react-router-dom";
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Route path="/faq" element={<FAQPage/>} />
         <Route path="/cadastro" element={<CadastroPage/>} />
         <Route path="/login" element={<LoginPage/>}/>
+        <Route path="/perfil" element={<PerfilPage/>}/>
         </Routes>
       </Router>
     </div>
