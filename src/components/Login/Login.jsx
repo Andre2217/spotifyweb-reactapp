@@ -8,6 +8,7 @@ function Login() {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [error, setError] = useState('');
+  const [setIsLoggedIn] = useState(false);
   
   function handleSubmit(e){
     e.preventDefault();
@@ -22,6 +23,12 @@ function Login() {
       setError('');
       setEmail('');
       setSenha('');
+
+      setIsLoggedIn(true);
+
+      setTimeout(() => {
+        window.location.href = '/';
+      }, 3000);
 
       localStorage.setItem("usuarioLogado", JSON.stringify(usuario));
     });
