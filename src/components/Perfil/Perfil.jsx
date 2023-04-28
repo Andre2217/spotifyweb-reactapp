@@ -8,12 +8,6 @@ function Perfil({ toggleEditarPerfil }) {
     const [showInputs, setShowInputs] = useState(false);
     const [nomePlaylist, setNomePlaylist] = useState('');
 
-    function cadastrarPlaylists(nomePlaylist) {
-        axios.put(`http://localhost:3001/usuarios/${id}`, usuario)
-
-    }
-
-
     const handleClick = () => {
         setShowInputs(!showInputs);
     };
@@ -30,7 +24,7 @@ function Perfil({ toggleEditarPerfil }) {
         <div>
             <h1>{usuario.nome}</h1>
             <h2>{usuario.email}</h2>
-            <button onClick={handleClick}>Show Inputs</button>
+            <button onClick={handleClick}>Criar Playlist</button>
             <br></br>
             <button onClick={toggleEditarPerfil}>Editar Perfil</button>
             {showInputs && (
