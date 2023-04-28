@@ -417,3 +417,30 @@ button {
 .btn-save{
   margin-left: 40%;
 }
+
+.cria-playlist-btn, .editar-perfil-btn {
+  background-color: #FD3F0E;
+  border: none;
+  border-radius: 40px;
+  color: #fff;
+  font-weight: 400;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.logout-btn{
+  border: none;
+  border-radius: 40px;
+  color: #fff;
+  font-weight: 400;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.user-name {
+  font-size: 25px;
+  font-weight: 600 !important;
+  color: black !important;
+}

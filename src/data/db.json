@@ -383,6 +383,19 @@
       "senha": "yago",
       "playlists": [],
       "id": 9
+    },
+    {
+      "nome": "Yago",
+      "email": "abba@hotmail.com",
+      "senha": "abba",
+      "playlists": [],
+      "id": 10
+    },
+    {
+      "nome": "Gerald",
+      "email": "gerald@bob.com",
+      "senha": "1234456",
+      "id": 11
     }
   ],
   "musicas": [

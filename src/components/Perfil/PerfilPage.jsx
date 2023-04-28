@@ -8,7 +8,6 @@ import EditarPerfil from '../Perfil/EditarPerfil';
 function PerfilPage() {
     const [editarPerfil, setEditarPerfil] = useState(false);
     const usuario = JSON.parse(localStorage.getItem("usuarioLogado"));
-    
 
     function toggleEditarPerfil() {
         setEditarPerfil(!editarPerfil);
@@ -16,23 +15,24 @@ function PerfilPage() {
 
     return (
         <>
-        <div className='cadastro-container'>
-            <div className="cadastro-header">
-                <Header/>
-                <Navbar/>
+            <div className='cadastro-container'>
+                <div className="cadastro-header">
+                    <Header/>
+                    <Navbar/>
+                </div>
+                <div className='cadastro-content'>
+                    {editarPerfil ? (
+                        <EditarPerfil usuario={usuario} toggleEditarPerfil={toggleEditarPerfil} />
+                    ) : (
+                        <>
+                            <Perfil usuario={usuario} toggleEditarPerfil={toggleEditarPerfil} />
+                        </>
+                    )}
+                </div>
+                <div className="cadastro-footer">
+                    <Footer/>
+                </div>
             </div>
-            <div className='cadastro-content'>
-                {editarPerfil ? (
-                    <EditarPerfil usuario={usuario} toggleEditarPerfil={toggleEditarPerfil} />
-                ) : (
-                    <Perfil toggleEditarPerfil={toggleEditarPerfil} />
-                )}
-            </div>
-
-            <div className="cadastro-footer">
-                <Footer/>
-            </div>
-        </div>
         </>
     );
 }

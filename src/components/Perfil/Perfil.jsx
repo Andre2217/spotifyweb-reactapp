@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useState } from "react";
+import { Card, Button } from 'react-bootstrap';
 
 function Perfil({ toggleEditarPerfil }) {
     const usuario = JSON.parse(localStorage.getItem("usuarioLogado"));
@@ -12,33 +13,65 @@ function Perfil({ toggleEditarPerfil }) {
         setShowInputs(!showInputs);
     };
 
-    usuario.playlits.push({ nome: nomePlaylist });
     function cadastrarPlaylists() {
+        usuario.playlits.push({ nome: nomePlaylist });
         axios.put(`http://localhost:3001/usuarios/${id}`, usuario)
     }
 
     function logout() {
         localStorage.removeItem("usuarioLogado")
     }
+
     return (
-        <div>
-            <h1>{usuario.nome}</h1>
-            <h2>{usuario.email}</h2>
-            <button onClick={handleClick}>Criar Playlist</button>
-            <br></br>
-            <button onClick={toggleEditarPerfil}>Editar Perfil</button>
-            {showInputs && (
-                <div>
-                    <label>Nome da playlist</label>
-                    <input type="text" value={nomePlaylist} onChange={(e) => setNomePlaylist(e.target.value)} />
-                    <br />
-                    <label>Busque sua musica</label>
-                    <input type="text" />
-                    <button onClick={() => cadastrarPlaylists(nomePlaylist)}>Cadastrar Playlist</button>
+        <Card style={{ width: '20rem', margin: '0 auto', marginBottom: '20px', marginTop: '20px' }} className="mx-auto">
+            <Card.Header  className="text-center">Seu Perfil</Card.Header>
+            <Card.Body  className="text-center">
+                <Card.Text className="user-name">
+                    {usuario.nome}
+                </Card.Text>
+                <Card.Text>
+                    {usuario.email}
+                </Card.Text>
+
+                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <Button 
+                variant="primary" 
+                onClick={handleClick} 
+                className="mx-2 cria-playlist-btn">
+                    Criar Playlist
+                    </Button>
+
+                <Button 
+                variant="primary" 
+                onClick={toggleEditarPerfil} 
+                className="mx-2 editar-perfil-btn">
+                    Editar Perfil
+                    </Button>
+                
+                <Button 
+                variant="danger" 
+                onClick={logout} 
+                className="mx-2 logout-btn">
+                    Logout
+                    </Button>
+
                 </div>
-            )}
-            <button onClick={logout}>logout</button>
-        </div>
+                {showInputs && (
+                    <div>
+                        <label>Nome da playlist</label>
+                        <input 
+                        type="text" 
+                        value={nomePlaylist} 
+                        onChange={(e) => setNomePlaylist(e.target.value)} 
+                        />
+                        <br />
+                        <label>Busque sua musica</label>
+                        <input type="text" />
+                        <Button variant="success" onClick={cadastrarPlaylists}>Cadastrar Playlist</Button>
+                    </div>
+                )}
+            </Card.Body>
+        </Card>
     );
 }
 
