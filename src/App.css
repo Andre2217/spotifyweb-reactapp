@@ -355,6 +355,11 @@ button {
 
 /* login */ 
 
+.error-login{
+  color: red;
+  font-weight: bold;
+}
+
 .login-container{
   width: 100%;
   justify-content: center;
