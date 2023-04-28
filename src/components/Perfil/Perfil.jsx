@@ -1,10 +1,15 @@
 import axios from 'axios';
 import React, { useState } from "react";
 import { Card, Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
+
 
 function Perfil({ toggleEditarPerfil }) {
     const usuario = JSON.parse(localStorage.getItem("usuarioLogado"));
     const id = usuario.id;
+
+    const navigate = useNavigate();
+
 
     const [showInputs, setShowInputs] = useState(false);
     const [nomePlaylist, setNomePlaylist] = useState('');
@@ -19,7 +24,8 @@ function Perfil({ toggleEditarPerfil }) {
     }
 
     function logout() {
-        localStorage.removeItem("usuarioLogado")
+        localStorage.removeItem("usuarioLogado");
+        navigate('/login');
     }
 
     return (
