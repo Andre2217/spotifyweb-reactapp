@@ -364,6 +364,15 @@
         }
       ],
       "id": 7
+    },
+    {
+      "nome": "Rafael",
+      "email": "rafael@gmail.com",
+      "senha": "aaa",
+      "estilos": [
+        "hiphop"
+      ],
+      "id": 8
     }
   ],
   "musicas": [
