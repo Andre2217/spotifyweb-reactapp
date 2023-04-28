@@ -16,7 +16,7 @@ function Login() {
       const usuario = resultado.data[0];
 
       if(!usuario || usuario.senha !== senha) {
-        setError("Usuario ou senha invalido");
+        setError("Usuário ou senha inválidos");
         return 
       }
       setError('');
@@ -38,7 +38,15 @@ function Login() {
               <form onSubmit={handleSubmit}>
                 <div className="form-group">
                   <label htmlFor="email" className="email-label">E-mail</label>
-                  <input type="email" className="form-control" id="email" aria-describedby="emailHelp" placeholder="Insira seu e-mail cadastrado" value={email} onChange={(e) => setEmail(e.target.value)} required />
+                  <input 
+                  type="email" 
+                  className="form-control" 
+                  id="email" 
+                  aria-describedby="emailHelp" 
+                  placeholder="Insira seu e-mail cadastrado" 
+                  value={email} 
+                  onChange={(e) => setEmail(e.target.value)} 
+                  required />
                   <small id="emailHelp" className="form-text text-muted">Nós nunca compartilharemos seus dados com ninguém.</small>
                 </div>
 
@@ -46,14 +54,21 @@ function Login() {
 
                 <div className="form-group">
                   <label htmlFor="password" className="password-label">Senha</label>
-                  <input type="password" className="form-control" id="password" placeholder="Insira sua senha" value={senha} onChange={(e) => setSenha(e.target.value)} required />
+                  <input 
+                  type="password" 
+                  className="form-control" 
+                  id="password" 
+                  placeholder="Insira sua senha" 
+                  value={senha} 
+                  onChange={(e) => setSenha(e.target.value)} 
+                  required />
                 </div>
 
                 <br></br>
-                <br></br>
+                
 
                 <button type="submit" className="btn btn-primary">Entrar</button>
-                <p>{error}</p>
+                <p className="error-login">{error}</p>
               </form>
 
 
