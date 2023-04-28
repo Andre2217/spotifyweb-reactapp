@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
@@ -7,7 +7,7 @@ function EditarPerfil() {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [estilos, setEstilos] = useState([]);
-  const [mensagem, setMensagem] = useState('');
+  const [setMensagem] = useState('');
   const navigate = useNavigate();
 
   const usuario = JSON.parse(localStorage.getItem("usuarioLogado"));
@@ -35,10 +35,10 @@ function EditarPerfil() {
     event.preventDefault();
 
     axios.put(`http://localhost:3001/usuarios/${id}`, {
-      nome:nome,
-      email:email,
-      senha:senha,
-      estilos:estilos,
+      nome,
+      email,
+      senha,
+      estilos,
     })
       .then(() => {
         setMensagem('Perfil atualizado com sucesso!');

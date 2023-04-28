@@ -8,7 +8,7 @@ import EditarPerfil from '../Perfil/EditarPerfil';
 function PerfilPage() {
     const [editarPerfil, setEditarPerfil] = useState(false);
     const usuario = JSON.parse(localStorage.getItem("usuarioLogado"));
-    const id = usuario.id;
+    
 
     function toggleEditarPerfil() {
         setEditarPerfil(!editarPerfil);

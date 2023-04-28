@@ -373,6 +373,13 @@
         "hiphop"
       ],
       "id": 8
+    },
+    {
+      "nome": "yago",
+      "email": "yagowb@gmail.com",
+      "senha": "yago",
+      "playlists": [],
+      "id": 9
     }
   ],
   "musicas": [
