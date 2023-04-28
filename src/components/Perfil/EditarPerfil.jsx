@@ -6,7 +6,6 @@ function EditarPerfil({ usuario, toggleEditarPerfil }) {
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
-  const [estilos, setEstilos] = useState([]);
   const [mensagem, setMensagem] = useState('');
   const navigate = useNavigate();
 
@@ -15,11 +14,10 @@ function EditarPerfil({ usuario, toggleEditarPerfil }) {
   useEffect(() => {
     axios.get(`http://localhost:3001/usuarios/${id}`)
       .then((response) => {
-        const { nome, email, senha, estilos } = response.data;
+        const { nome, email, senha } = response.data;
         setNome(nome);
         setEmail(email);
         setSenha(senha);
-        setEstilos(estilos);
       })
       .catch((error) => {
         console.error(error);
@@ -42,7 +40,6 @@ function EditarPerfil({ usuario, toggleEditarPerfil }) {
             nome,
             email,
             senha,
-            estilos,
           })
             .then(() => {
               setMensagem('Perfil atualizado com sucesso!');
@@ -106,22 +103,6 @@ function EditarPerfil({ usuario, toggleEditarPerfil }) {
                 onChange={(event) => setSenha(event.target.value)}
                 required
               />
-            </div>
-
-            <div className="form-group mb-3">
-              <label htmlFor="estilos">Selecione seus Estilos Musicais Favoritos</label>
-              <select
-                multiple
-                className="form-control"
-                id="estilos"
-                value={estilos}
-                onChange={(event) => setEstilos(Array.from(event.target.selectedOptions, option => option.value))}
-              >
-                <option value="rock">Rock</option>
-                <option value="pop">Pop</option>
-                <option value="hip-hop">Hip Hop</option>
-                <option value="eletronica">Eletrônica</option>
-              </select>
             </div>
 
             {mensagem && <div className="alert alert-primary" role="alert">{mensagem}</div>}
