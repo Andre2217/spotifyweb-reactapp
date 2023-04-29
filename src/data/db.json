@@ -329,24 +329,100 @@
           ]
         },
         {
-          "nome": "teste2",
+          "nome": "teste3",
           "musicas": [
             {
-              "id": 3,
+              "id": 21,
+              "cantor": "Michael Jackson",
+              "nome": "Billie Jean",
+              "track": "../sounds/Michael_Jackson_BillieJean.mp3"
+            }
+          ]
+        },
+        {
+          "nome": "teste4",
+          "musicas": [
+            {
+              "id": 5,
               "cantor": "Adele",
-              "nome": "Hello",
-              "track": "../sounds/Adele_Hello.mp3"
+              "nome": "Rolling in the Deep",
+              "track": "../sounds/Adele_Rolling_in_the_Deep.mp3"
             },
             {
-              "id": 8,
+              "id": 9,
               "cantor": "Queen",
-              "nome": "Love Of My Life",
-              "track": "../sounds/Queen_Love_Of_My_Life.mp3"
+              "nome": "Radio Ga Ga",
+              "track": "../sounds/Queen_Radio_Ga_Ga.mp3"
+            }
+          ]
+        },
+        {
+          "nome": "teste5",
+          "musicas": [
+            {
+              "id": 12,
+              "cantor": "ColdPlay",
+              "nome": "Yellow",
+              "track": "../sounds/Coldplay_Yellow.mp3"
+            },
+            {
+              "id": 14,
+              "cantor": "ColdPlay",
+              "nome": "Clocks",
+              "track": "../sounds/Coldplay_Clocks.mp3"
+            }
+          ]
+        },
+        {
+          "nome": "teste6",
+          "musicas": [
+            {
+              "id": 23,
+              "cantor": "Michael Jackson",
+              "nome": "Dont Stop Til You Get Enough",
+              "track": "../sounds/Michael_Jackson_Dont_Stop_Til_You_Get_Enough.mp3"
+            },
+            {
+              "id": 26,
+              "cantor": "Seu Jorge",
+              "nome": "Amiga da Minha Mulher",
+              "track": "../sounds/Seu_Jorge_Amiga_da_minha_mulher.mp3"
+            },
+            {
+              "id": 27,
+              "cantor": "Seu Jorge",
+              "nome": "Burguesinha",
+              "track": "../sounds/Seu_Jorge_Burguesinha.mp3"
             }
           ]
         }
       ],
       "id": 1
+    },
+    {
+      "nome": "daniel",
+      "email": "d@d.com",
+      "senha": "123",
+      "playlists": [
+        {
+          "nome": "teste0",
+          "musicas": [
+            {
+              "id": 12,
+              "cantor": "ColdPlay",
+              "nome": "Yellow",
+              "track": "../sounds/Coldplay_Yellow.mp3"
+            },
+            {
+              "id": 14,
+              "cantor": "ColdPlay",
+              "nome": "Clocks",
+              "track": "../sounds/Coldplay_Clocks.mp3"
+            }
+          ]
+        }
+      ],
+      "id": 2
     }
   ],
   "musicas": [

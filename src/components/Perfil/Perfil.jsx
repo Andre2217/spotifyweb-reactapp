@@ -23,6 +23,7 @@ function Perfil({ toggleEditarPerfil }) {
         console.log('Novo usuário:', novoUsuario);
         novoUsuario.playlists.push({ nome: nomePlaylist, musicas: musicasPlaylist });
         console.log('Novo usuário:', novoUsuario);
+        localStorage.setItem("usuarioLogado", JSON.stringify(novoUsuario));
         axios.put(`http://localhost:3001/usuarios/${id}`, novoUsuario);
       }
 
