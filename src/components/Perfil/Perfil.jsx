@@ -9,6 +9,7 @@ function Perfil({ toggleEditarPerfil }) {
 
     const [showInputs, setShowInputs] = useState(false);
     const [nomePlaylist, setNomePlaylist] = useState('');
+    const [musicasPlaylist, setMusicasPlaylist] = useState([]);
     const navigate = useNavigate();
 
     const handleClick = () => {
@@ -16,16 +17,61 @@ function Perfil({ toggleEditarPerfil }) {
     };
 
     function cadastrarPlaylists() {
-        const novaPlaylist = { nome: nomePlaylist };
-        usuario.playlists.push(novaPlaylist);
-        axios.put(`http://localhost:3001/usuarios/${id}`, usuario);
-        localStorage.setItem("usuarioLogado", JSON.stringify(usuario));
+        const novoUsuario = { ...usuario }; 
+        console.log('Novo usuário:', novoUsuario);
+        novoUsuario.playlists = novoUsuario.playlists || [];
+        console.log('Novo usuário:', novoUsuario);
+        novoUsuario.playlists.push({ nome: nomePlaylist, musicas: musicasPlaylist });
+        console.log('Novo usuário:', novoUsuario);
+        axios.put(`http://localhost:3001/usuarios/${id}`, novoUsuario);
       }
 
     function logout() {
         localStorage.removeItem("usuarioLogado");
         navigate('/login');
     }
+
+        //--------------*****MUSICAS SELECIONADAS*****------------
+        async function adicionarMusicas(id) {
+            try {
+                const response = await axios.get(`http://localhost:3001/musicas/${id}`);
+                const musica = response.data;
+                if(musicasPlaylist == null){
+                    setMusicasPlaylist([musica]);
+                }else{
+                    setMusicasPlaylist([...musicasPlaylist, musica]);
+                }
+            } catch (error) {
+                console.error(error);
+            }
+        }
+        //------------*****PESQUISA*****------------------------------------------------------
+     const [pesquisa, setPesquisa] = useState('');
+     const [resultado, setResultado] = useState([]);
+ 
+     const handleChange = (event) => {
+         setPesquisa(event.target.value);
+     };
+ 
+     const [searchClicked, setSearchClicked] = useState(false);
+ 
+     const handleSubmit = async (event) => {
+         event.preventDefault();
+         try {
+             if (searchClicked) {
+                 return;
+             }
+             setSearchClicked(true);
+             const resposta = await axios.get(`http://localhost:3001/musicas`);
+             const resultadosFiltrados = resposta.data.filter(item => item.nome.toLowerCase().includes(pesquisa.toLowerCase()));
+             setResultado(resultadosFiltrados);
+             setSearchClicked(false);
+         } catch (error) {
+             console.error(error);
+             setSearchClicked(false);
+         }
+     };
+
 
     return (
         <Card style={{ width: '20rem', margin: '0 auto', marginBottom: '20px', marginTop: '20px' }} className="mx-auto">
@@ -62,19 +108,24 @@ function Perfil({ toggleEditarPerfil }) {
 
                 </div>
                 {showInputs && (
-                    <div>
-                        <label>Nome da playlist</label>
-                        <input 
-                        type="text" 
-                        value={nomePlaylist} 
-                        onChange={(e) => setNomePlaylist(e.target.value)} 
-                        />
-                        <br />
-                        <label>Busque sua musica</label>
-                        <input type="text" />
-                        <Button variant="success" onClick={cadastrarPlaylists}>Cadastrar Playlist</Button>
-                    </div>
-                )}
+                <div>
+                    <label>Nome da playlist</label>
+                    <input type="text" value={nomePlaylist} onChange={(e) => setNomePlaylist(e.target.value)} />
+                    <br />
+                    {/* Buscar a musica por nome */}
+                    <form onSubmit={handleSubmit}>
+                        <input type="text" placeholder="busca nome de uma musica" value={pesquisa} onChange={handleChange} />
+                        <button type="submit">Search</button>
+                    </form>
+                    {resultado.map((result, index) => (
+                        <div key={index}>
+                            <p>Nome da musica: {result.nome} by {result.cantor}</p>
+                            <button onClick={() => adicionarMusicas(result.id)}>Adicionar a playlist</button>
+                        </div>
+                    ))}
+                    <button onClick={() => cadastrarPlaylists()}>Cadastrar Playlist</button>
+                </div>
+            )}
             </Card.Body>
         </Card>
     );

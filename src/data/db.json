@@ -310,105 +310,43 @@
       "nome": "Andre28ap",
       "email": "andre28ap@gmail.com",
       "senha": "1234",
-      "playlits": [
+      "playlists": [
         {
-          "nome": "x",
-          "musicas": "y"
+          "nome": "teste7",
+          "musicas": [
+            {
+              "id": 3,
+              "cantor": "Adele",
+              "nome": "Hello",
+              "track": "../sounds/Adele_Hello.mp3"
+            },
+            {
+              "id": 17,
+              "cantor": "The Beatles",
+              "nome": "Help!",
+              "track": "../sounds/The_Beatlhes_Help.mp3"
+            }
+          ]
         },
         {
-          "nome": "lululu"
+          "nome": "teste2",
+          "musicas": [
+            {
+              "id": 3,
+              "cantor": "Adele",
+              "nome": "Hello",
+              "track": "../sounds/Adele_Hello.mp3"
+            },
+            {
+              "id": 8,
+              "cantor": "Queen",
+              "nome": "Love Of My Life",
+              "track": "../sounds/Queen_Love_Of_My_Life.mp3"
+            }
+          ]
         }
       ],
       "id": 1
-    },
-    {
-      "nome": "eueueueu",
-      "email": "aop@getm.em",
-      "senha": "1234",
-      "playlists": [],
-      "id": 2
-    },
-    {
-      "nome": "alisson",
-      "email": "a@a.com",
-      "senha": "9876",
-      "playlists": [],
-      "id": 3
-    },
-    {
-      "nome": "Berenice",
-      "email": "b@b.com",
-      "senha": "4321",
-      "playlists": [],
-      "id": 4
-    },
-    {
-      "nome": "Carla",
-      "email": "c@c.com",
-      "senha": "123",
-      "playlists": [],
-      "id": 5
-    },
-    {
-      "nome": "Daniel",
-      "email": "d@d.com",
-      "senha": "45678",
-      "playlists": [],
-      "id": 6
-    },
-    {
-      "nome": "facaLogin",
-      "email": "faca@login.com",
-      "senha": "1234",
-      "playlits": [
-        {
-          "nome": "x",
-          "musicas": "y"
-        }
-      ],
-      "id": 7
-    },
-    {
-      "nome": "Rafael",
-      "email": "rafael@gmail.com",
-      "senha": "aaa",
-      "estilos": [
-        "hiphop"
-      ],
-      "id": 8
-    },
-    {
-      "nome": "yago",
-      "email": "yagowb@gmail.com",
-      "senha": "yago05",
-      "id": 9
-    },
-    {
-      "nome": "Yago",
-      "email": "abba@hotmail.com",
-      "senha": "abba",
-      "playlists": [],
-      "id": 10
-    },
-    {
-      "nome": "Gerald",
-      "email": "gerald@bob.com",
-      "senha": "1234456",
-      "id": 11
-    },
-    {
-      "nome": "Roger",
-      "email": "abba@hotmail.com",
-      "senha": "abba",
-      "playlists": [],
-      "id": 12
-    },
-    {
-      "nome": "Roger",
-      "email": "abba@gmail.com",
-      "senha": "1234",
-      "playlists": [],
-      "id": 13
     }
   ],
   "musicas": [
