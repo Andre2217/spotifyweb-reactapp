@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from "react";
 import { Card, Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 function Perfil({ toggleEditarPerfil }) {
     const usuario = JSON.parse(localStorage.getItem("usuarioLogado"));
@@ -8,6 +9,7 @@ function Perfil({ toggleEditarPerfil }) {
 
     const [showInputs, setShowInputs] = useState(false);
     const [nomePlaylist, setNomePlaylist] = useState('');
+    const navigate = useNavigate();
 
     const handleClick = () => {
         setShowInputs(!showInputs);
@@ -21,7 +23,8 @@ function Perfil({ toggleEditarPerfil }) {
       }
 
     function logout() {
-        localStorage.removeItem("usuarioLogado")
+        localStorage.removeItem("usuarioLogado");
+        navigate('/login');
     }
 
     return (
