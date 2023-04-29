@@ -380,8 +380,7 @@
     {
       "nome": "yago",
       "email": "yagowb@gmail.com",
-      "senha": "yago",
-      "playlists": [],
+      "senha": "yago05",
       "id": 9
     },
     {
@@ -403,6 +402,13 @@
       "senha": "abba",
       "playlists": [],
       "id": 12
+    },
+    {
+      "nome": "Roger",
+      "email": "abba@gmail.com",
+      "senha": "1234",
+      "playlists": [],
+      "id": 13
     }
   ],
   "musicas": [

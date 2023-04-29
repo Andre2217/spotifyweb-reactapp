@@ -44,8 +44,9 @@ function EditarPerfil({ usuario, toggleEditarPerfil }) {
             .then(() => {
               setMensagem('Perfil atualizado com sucesso!');
               setTimeout(() => {
+                toggleEditarPerfil();
                 navigate('/perfil');
-              }, 3000);
+              }, 2000);
             })
             .catch((error) => {
               console.error(error);
@@ -103,6 +104,20 @@ function EditarPerfil({ usuario, toggleEditarPerfil }) {
                 onChange={(event) => setSenha(event.target.value)}
                 required
               />
+            </div>
+
+            <div className="form-group mb-3">
+              <label htmlFor="estilos">Selecione seus Estilos Musicais Favoritos</label>
+              <select
+                multiple
+                className="form-control"
+                id="estilos"
+              >
+                <option value="rock">Rock</option>
+                <option value="pop">Pop</option>
+                <option value="hip-hop">Hip Hop</option>
+                <option value="eletronica">Eletrônica</option>
+              </select>
             </div>
 
             {mensagem && <div className="alert alert-primary" role="alert">{mensagem}</div>}

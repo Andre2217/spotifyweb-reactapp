@@ -1,15 +1,10 @@
 import axios from 'axios';
 import React, { useState } from "react";
 import { Card, Button } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
-
 
 function Perfil({ toggleEditarPerfil }) {
     const usuario = JSON.parse(localStorage.getItem("usuarioLogado"));
     const id = usuario.id;
-
-    const navigate = useNavigate();
-
 
     const [showInputs, setShowInputs] = useState(false);
     const [nomePlaylist, setNomePlaylist] = useState('');
@@ -19,13 +14,14 @@ function Perfil({ toggleEditarPerfil }) {
     };
 
     function cadastrarPlaylists() {
-        usuario.playlits.push({ nome: nomePlaylist });
-        axios.put(`http://localhost:3001/usuarios/${id}`, usuario)
-    }
+        const novaPlaylist = { nome: nomePlaylist };
+        usuario.playlists.push(novaPlaylist);
+        axios.put(`http://localhost:3001/usuarios/${id}`, usuario);
+        localStorage.setItem("usuarioLogado", JSON.stringify(usuario));
+      }
 
     function logout() {
-        localStorage.removeItem("usuarioLogado");
-        navigate('/login');
+        localStorage.removeItem("usuarioLogado")
     }
 
     return (
@@ -38,8 +34,8 @@ function Perfil({ toggleEditarPerfil }) {
                 <Card.Text>
                     {usuario.email}
                 </Card.Text>
-
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+
                 <Button 
                 variant="primary" 
                 onClick={handleClick} 

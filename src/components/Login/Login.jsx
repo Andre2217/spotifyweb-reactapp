@@ -8,31 +8,28 @@ function Login() {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [error, setError] = useState('');
-  const [setIsLoggedIn] = useState(false);
   
   function handleSubmit(e){
     e.preventDefault();
-
+  
     axios.get(`http://localhost:3001/usuarios?email=${email}`).then((resultado) => {
       const usuario = resultado.data[0];
-
+  
       if(!usuario || usuario.senha !== senha) {
         setError("Usuário ou senha inválidos");
         return 
       }
+  
+      
+      localStorage.setItem("usuarioLogado", JSON.stringify(usuario));
+      
       setError('');
       setEmail('');
       setSenha('');
-
-      setIsLoggedIn(true);
-
-      setTimeout(() => {
-        window.location.href = '/';
-      }, 3000);
-
-      localStorage.setItem("usuarioLogado", JSON.stringify(usuario));
+  
     });
   }
+  
 
 
   return (
