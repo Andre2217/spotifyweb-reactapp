@@ -36,7 +36,7 @@ function EditarPerfil({ usuario, toggleEditarPerfil }) {
         } else if (senha.length > 0 && senha.length < 6) {
           setMensagem('A nova senha deve ter pelo menos 6 caracteres.');
         } else {
-          axios.put(`http://localhost:3001/usuarios/${id}`, {
+          axios.patch(`http://localhost:3001/usuarios/${id}`, {
             nome,
             email,
             senha,
