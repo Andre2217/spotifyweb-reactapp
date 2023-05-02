@@ -12,15 +12,18 @@ function PerfilPage() {
 
     if (!usuario) {
         return (
-            <div>
-                <div className="cadastro-header">
+            <div className="not-perfil-container">
+                <div className="not-perfil-header">
                     <Header />
                     <Navbar />
                 </div>
+                <div className='not-perfil-content'>
+                <h2 className="not-perfil">Para acessar as funções de Perfil é necessário estar logado.</h2>
                 <Link to="/login">
-                    <h1>Faça o login</h1>
+                    <h3 className='not-perfil'>Faça o login</h3>
                 </Link>
-                 <div className="cadastro-footer">
+                </div>
+                 <div className="login-footer">
                     <Footer/>
                 </div>
             </div>

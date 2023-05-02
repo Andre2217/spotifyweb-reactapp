@@ -484,3 +484,22 @@ button {
 .resultado-pesquisa-button{
   padding-bottom: 1rem;
 }
+
+.not-perfil-container{
+  width: 100%;
+  justify-content: center;
+}
+
+.not-perfil-content {
+  padding: 50px 0;
+  margin-bottom: 50px;
+}
+
+
+.not-perfil-header {
+  margin: 0 auto;
+}
+
+.not-perfil {
+  text-align: center;
+}

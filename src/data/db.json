@@ -423,6 +423,13 @@
         }
       ],
       "id": 2
+    },
+    {
+      "nome": "Amanda",
+      "email": "abba@bol.com",
+      "senha": "1234",
+      "playlists": [],
+      "id": 3
     }
   ],
   "musicas": [
