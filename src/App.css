@@ -444,3 +444,43 @@ button {
   font-weight: 600 !important;
   color: black !important;
 }
+
+.Exibir-Playlists {
+  position: absolute;
+  left: 0;
+  margin-left: 20px; 
+  list-style-type: none;
+}
+
+.showInputs{
+  position: absolute;
+  right: 0;
+  margin-right: 20px; 
+}
+
+.Nome-Playlist{
+  display: block;
+  margin-bottom: 5px;
+}
+
+.input-nome-plalist{
+  display: block;
+}
+
+.busca{
+  padding-left: 5px;
+}
+
+.cadastrar-playlist{
+  padding: 10px 10px 1rem 10px;
+  border: 1px solid;
+  border-radius: 30px;
+}
+
+.resultado-pesquisa-p{
+  margin-bottom: 0;
+}
+
+.resultado-pesquisa-button{
+  padding-bottom: 1rem;
+}

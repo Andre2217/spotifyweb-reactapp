@@ -17,67 +17,82 @@ function Perfil({ toggleEditarPerfil }) {
     };
 
     function cadastrarPlaylists() {
-        const novoUsuario = { ...usuario }; 
-        console.log('Novo usuário:', novoUsuario);
+        const novoUsuario = { ...usuario };
         novoUsuario.playlists = novoUsuario.playlists || [];
-        console.log('Novo usuário:', novoUsuario);
         novoUsuario.playlists.push({ nome: nomePlaylist, musicas: musicasPlaylist });
-        console.log('Novo usuário:', novoUsuario);
         localStorage.setItem("usuarioLogado", JSON.stringify(novoUsuario));
         axios.put(`http://localhost:3001/usuarios/${id}`, novoUsuario);
-      }
+    }
 
     function logout() {
         localStorage.removeItem("usuarioLogado");
         navigate('/login');
     }
 
-        //--------------*****MUSICAS SELECIONADAS*****------------
-        async function adicionarMusicas(id) {
-            try {
-                const response = await axios.get(`http://localhost:3001/musicas/${id}`);
-                const musica = response.data;
-                if(musicasPlaylist == null){
-                    setMusicasPlaylist([musica]);
-                }else{
-                    setMusicasPlaylist([...musicasPlaylist, musica]);
-                }
-            } catch (error) {
-                console.error(error);
+    //--------------*****MUSICAS SELECIONADAS*****------------
+    async function adicionarMusicas(id) {
+        try {
+            const response = await axios.get(`http://localhost:3001/musicas/${id}`);
+            const musica = response.data;
+            if (musicasPlaylist == null) {
+                setMusicasPlaylist([musica]);
+            } else {
+                setMusicasPlaylist([...musicasPlaylist, musica]);
             }
+        } catch (error) {
+            console.error(error);
         }
-        //------------*****PESQUISA*****------------------------------------------------------
-     const [pesquisa, setPesquisa] = useState('');
-     const [resultado, setResultado] = useState([]);
- 
-     const handleChange = (event) => {
-         setPesquisa(event.target.value);
-     };
- 
-     const [searchClicked, setSearchClicked] = useState(false);
- 
-     const handleSubmit = async (event) => {
-         event.preventDefault();
-         try {
-             if (searchClicked) {
-                 return;
-             }
-             setSearchClicked(true);
-             const resposta = await axios.get(`http://localhost:3001/musicas`);
-             const resultadosFiltrados = resposta.data.filter(item => item.nome.toLowerCase().includes(pesquisa.toLowerCase()));
-             setResultado(resultadosFiltrados);
-             setSearchClicked(false);
-         } catch (error) {
-             console.error(error);
-             setSearchClicked(false);
-         }
-     };
+    }
+    //------------*****PESQUISA*****------------------------------------------------------
+    const [pesquisa, setPesquisa] = useState(''); //Pesquisa a ser feita
+    const [resultado, setResultado] = useState([]);   // resultado da pesquisa
+
+    const handleChange = (event) => {
+        setPesquisa(event.target.value); //pega o valor da pesquisa digitada pelo usuario
+    };
+
+    const [searchClicked, setSearchClicked] = useState(false); //só pra fazer chamadas pro db uma vez 
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        try {
+            if (searchClicked) {
+                return;
+            }
+            setSearchClicked(true);
+            const resposta = await axios.get(`http://localhost:3001/musicas`);
+            const resultadosFiltrados = resposta.data.filter(item => item.nome.toLowerCase().includes(pesquisa.toLowerCase()));//filtra todas as
+            //musicas que contem pesquisa
+            setResultado(resultadosFiltrados);
+            setSearchClicked(false);
+        } catch (error) {
+            console.error(error);
+            setSearchClicked(false);
+        }
+    };
+    //------------------*****Exibir Playlists*****---------------------------
+    const [currentTrack, setCurrentTrack] = useState(null);
+    const start = (track) => {
+        if (currentTrack) {
+            currentTrack.pause();
+        }
+        const audio = new Audio(track);
+        setCurrentTrack(audio);
+        audio.play();
+    };
+
+    const stop = () => {
+        if (currentTrack) {
+            currentTrack.pause();
+            setCurrentTrack(null);
+        }
+    };
 
 
     return (
-        <Card style={{ width: '20rem', margin: '0 auto', marginBottom: '20px', marginTop: '20px' }} className="mx-auto">
-            <Card.Header  className="text-center">Seu Perfil</Card.Header>
-            <Card.Body  className="text-center">
+        <div><Card style={{ width: '20rem', margin: '0 auto', marginBottom: '20px', marginTop: '20px' }} className="mx-auto">
+            <Card.Header className="text-center">Seu Perfil</Card.Header>
+            <Card.Body className="text-center">
                 <Card.Text className="user-name">
                     {usuario.nome}
                 </Card.Text>
@@ -86,49 +101,99 @@ function Perfil({ toggleEditarPerfil }) {
                 </Card.Text>
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
 
-                <Button 
-                variant="primary" 
-                onClick={handleClick} 
-                className="mx-2 cria-playlist-btn">
-                    Criar Playlist
+                    <Button
+                        variant="primary"
+                        onClick={handleClick}
+                        className="mx-2 cria-playlist-btn">
+                        Criar Playlists
                     </Button>
 
-                <Button 
-                variant="primary" 
-                onClick={toggleEditarPerfil} 
-                className="mx-2 editar-perfil-btn">
-                    Editar Perfil
+                    {/* <Button
+                    variant="primary"
+                    onClick={handleClick}
+                    className="mx-2 cria-playlist-btn">
+                    Editar Playlists
+                </Button>
+
+                <Button
+                    variant="primary"
+                    onClick={handleClick}
+                    className="mx-2 cria-playlist-btn">
+                    Deletar Playlists
+                </Button> */}
+
+                    <Button
+                        variant="primary"
+                        onClick={toggleEditarPerfil}
+                        className="mx-2 editar-perfil-btn">
+                        Editar Perfil
                     </Button>
-                
-                <Button 
-                variant="danger" 
-                onClick={logout} 
-                className="mx-2 logout-btn">
-                    Logout
+
+                    <Button
+                        variant="danger"
+                        onClick={logout}
+                        className="mx-2 logout-btn">
+                        Logout
                     </Button>
 
                 </div>
-                {showInputs && (
-                <div>
-                    <label>Nome da playlist</label>
-                    <input type="text" value={nomePlaylist} onChange={(e) => setNomePlaylist(e.target.value)} />
-                    <br />
-                    {/* Buscar a musica por nome */}
-                    <form onSubmit={handleSubmit}>
-                        <input type="text" placeholder="busca nome de uma musica" value={pesquisa} onChange={handleChange} />
-                        <button type="submit">Search</button>
-                    </form>
-                    {resultado.map((result, index) => (
-                        <div key={index}>
-                            <p>Nome da musica: {result.nome} by {result.cantor}</p>
-                            <button onClick={() => adicionarMusicas(result.id)}>Adicionar a playlist</button>
-                        </div>
-                    ))}
-                    <button onClick={() => cadastrarPlaylists()}>Cadastrar Playlist</button>
-                </div>
-            )}
             </Card.Body>
         </Card>
+            <div className='showInputs'>
+                {showInputs && (
+                    <div>
+                        <label className='Nome-Playlist'>Nome da playlist</label>
+                        <input className='input-nome-plalist' type="text" value={nomePlaylist} onChange={(e) => setNomePlaylist(e.target.value)} />
+                        <br />
+                        {/* Buscar a musica por nome */}
+                        <form onSubmit={handleSubmit}>
+                            <input type="text" placeholder="buscar nome de musicas" value={pesquisa} onChange={handleChange} />
+                            <button className='busca' type="submit">Buscar</button>
+                        </form>
+                        {resultado.map((result, index) => (
+                            <div key={index}>
+                                <p className='resultado-pesquisa-p'>Nome da musica: {result.nome} by {result.cantor}</p>
+                                <button className='resultado-pesquisa-button' onClick={() => adicionarMusicas(result.id)}>Adicionar a playlist</button>
+                            </div>
+                        ))}
+                        <button className='cadastrar-playlist' onClick={() => cadastrarPlaylists()}>Cadastrar Playlist</button>
+                    </div>
+                )}
+            </div>
+            <div className='Exibir-Playlists'>
+                {usuario.playlists.map(playlists => (
+                    <>
+                        <h3>Playlist {playlists.nome}</h3>
+                        {playlists.musicas.map(musica => (
+                            <li key={musica.id}>
+                                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                                    <span>{musica.nome} by {musica.cantor}</span>
+                                    <div style={{ display: 'flex', alignItems: 'center' }}>
+                                        <button onClick={() => start(musica.track)} style={{
+                                            backgroundImage: 'url(../images/PLAY.png)',
+                                            backgroundSize: 'contain',
+                                            backgroundRepeat: 'no-repeat',
+                                            padding: '20px',
+                                            marginRight: '20px'
+                                        }}>
+                                        </button>
+
+                                        <button onClick={stop} style={{
+                                            backgroundImage: 'url(../images/pause.png)',
+                                            backgroundSize: 'contain',
+                                            backgroundRepeat: 'no-repeat',
+                                            padding: '20px'
+                                        }}>
+                                        </button>
+                                    </div>
+                                </div>
+                            </li>
+                        ))}
+                    </>
+
+                ))}
+            </div>
+        </div>
     );
 }
 
