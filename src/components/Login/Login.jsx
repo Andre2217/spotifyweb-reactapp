@@ -26,7 +26,7 @@ function Login() {
       setError('');
       setEmail('');
       setSenha('');
-  
+      setError("Login feito com sucesso!")
     });
   }
   
