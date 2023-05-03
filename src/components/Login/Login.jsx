@@ -8,6 +8,7 @@ function Login() {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [error, setError] = useState('');
+  const [mensagem, setMensagem] = useState("");
   
   function handleSubmit(e){
     e.preventDefault();
@@ -26,7 +27,7 @@ function Login() {
       setError('');
       setEmail('');
       setSenha('');
-      setError("Login feito com sucesso!")
+      setMensagem("Login feito com sucesso!");
     });
   }
   
@@ -73,6 +74,7 @@ function Login() {
 
                 <button type="submit" className="btn btn-primary">Entrar</button>
                 <p className="error-login">{error}</p>
+                <p className="success-login">{mensagem}</p>
               </form>
 
 

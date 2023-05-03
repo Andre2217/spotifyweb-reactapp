@@ -360,6 +360,11 @@ button {
   font-weight: bold;
 }
 
+.success-login {
+  color: green;
+  font-weight: bold;
+}
+
 .login-container{
   width: 100%;
   justify-content: center;
