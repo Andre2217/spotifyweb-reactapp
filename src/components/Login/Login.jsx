@@ -2,32 +2,40 @@ import { Link } from 'react-router-dom';
 import React, { useState } from 'react';
 import axios from 'axios';
 
-
 function Login() {
-
-  const [email, setEmail] = useState("");
-  const [senha, setSenha] = useState("");
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
   const [error, setError] = useState('');
-  const [mensagem, setMensagem] = useState("");
-  
-  function handleSubmit(e){
+  const [mensagem, setMensagem] = useState('');
+
+  const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"));
+
+  if (usuarioLogado) {
+    return (
+      <div className="d-flex flex-column justify-content-center align-items-center h-100">
+        <h2 className='user-logged'>Usuário Logado</h2>
+      </div>
+    );
+  }
+
+
+  function handleSubmit(e) {
     e.preventDefault();
-  
+
     axios.get(`http://localhost:3001/usuarios?email=${email}`).then((resultado) => {
       const usuario = resultado.data[0];
-  
-      if(!usuario || usuario.senha !== senha) {
-        setError("Usuário ou senha inválidos");
-        return 
+
+      if (!usuario || usuario.senha !== senha) {
+        setError('Usuário ou senha inválidos');
+        return;
       }
-  
-      
-      localStorage.setItem("usuarioLogado", JSON.stringify(usuario));
-      
+
+      localStorage.setItem('usuarioLogado', JSON.stringify(usuario));
+
       setError('');
       setEmail('');
       setSenha('');
-      setMensagem("Login feito com sucesso!");
+      setMensagem('Login feito com sucesso!');
     });
   }
   

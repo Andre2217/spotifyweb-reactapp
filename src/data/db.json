@@ -425,11 +425,36 @@
       "id": 2
     },
     {
-      "nome": "Amanda",
+      "nome": "Yago",
       "email": "abba@bol.com",
-      "senha": "1234",
-      "playlists": [],
+      "senha": "123405",
+      "playlists": [
+        {
+          "nome": "músicas pop",
+          "musicas": [
+            {
+              "id": 3,
+              "cantor": "Adele",
+              "nome": "Hello",
+              "track": "../sounds/Adele_Hello.mp3"
+            },
+            {
+              "id": 9,
+              "cantor": "Queen",
+              "nome": "Radio Ga Ga",
+              "track": "../sounds/Queen_Radio_Ga_Ga.mp3"
+            }
+          ]
+        }
+      ],
       "id": 3
+    },
+    {
+      "nome": "Yago",
+      "email": "yago@bol.com",
+      "senha": "espada",
+      "playlists": [],
+      "id": 4
     }
   ],
   "musicas": [

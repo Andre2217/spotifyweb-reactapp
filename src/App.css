@@ -416,6 +416,13 @@ button {
   font-size: x-small;
 }
 
+.user-logged {
+  text-align: center;
+  font-weight: bold;
+  color: #FD3F0E;
+}
+
+
 
 /* perfil */
 
@@ -497,7 +504,8 @@ button {
 
 .not-perfil-content {
   padding: 50px 0;
-  margin-bottom: 50px;
+  margin-top: 50px;
+  margin-bottom: 150px;
 }
 
 
