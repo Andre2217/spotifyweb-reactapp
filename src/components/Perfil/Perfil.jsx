@@ -19,9 +19,25 @@ function Perfil({ toggleEditarPerfil }) {
     function cadastrarPlaylists() {
         const novoUsuario = { ...usuario };
         novoUsuario.playlists = novoUsuario.playlists || [];
-        novoUsuario.playlists.push({ nome: nomePlaylist, musicas: musicasPlaylist });
+
+        const existe = novoUsuario.playlists.some((playlists) => playlists.nome == nomePlaylist);
+        if (!existe) {
+            
+            novoUsuario.playlists.push({ nome: nomePlaylist, musicas: musicasPlaylist });
+
+        } else {
+            const editar = novoUsuario.playlists.find((playlists) => playlists.nome == nomePlaylist);
+            editar.musicas = musicasPlaylist;
+            const novoArray = novoUsuario.playlists.filter((playlist) => playlist.nome != editar.nome);
+            novoUsuario.playlists = novoArray;
+            novoUsuario.playlists.push({ nome: editar.nome, musicas: editar.musicas });
+            // console.log(novoArray)
+            // console.log(editar);
+        }
+
         localStorage.setItem("usuarioLogado", JSON.stringify(novoUsuario));
         axios.put(`http://localhost:3001/usuarios/${id}`, novoUsuario);
+        
     }
 
     function logout() {

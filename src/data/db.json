@@ -408,16 +408,16 @@
           "nome": "teste0",
           "musicas": [
             {
-              "id": 12,
-              "cantor": "ColdPlay",
-              "nome": "Yellow",
-              "track": "../sounds/Coldplay_Yellow.mp3"
-            },
-            {
               "id": 14,
               "cantor": "ColdPlay",
               "nome": "Clocks",
               "track": "../sounds/Coldplay_Clocks.mp3"
+            },
+            {
+              "id": 12,
+              "cantor": "ColdPlay",
+              "nome": "Yellow",
+              "track": "../sounds/Coldplay_Yellow.mp3"
             }
           ]
         }
