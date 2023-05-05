@@ -12,10 +12,14 @@ function Carrosel() {
   const [playlists, setPlaylists] = useState([])
 
   useEffect(() =>{
-    setWidth(carrosel.current?.scrollWidth - carrosel.current?.offsetWidth)
+    
 
     axios.get('http://localhost:3001/playlists')
-      .then((res)=>setPlaylists(res.data))
+      .then(res=>
+      (setPlaylists(res.data)
+      (setWidth(carrosel.current?.scrollWidth - carrosel.current?.offsetWidth))
+      ))
+    
   }, [])
 
 
