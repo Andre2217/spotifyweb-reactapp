@@ -6,6 +6,17 @@ import { useNavigate } from 'react-router-dom';
 function Perfil({ toggleEditarPerfil }) {
     const usuario = JSON.parse(localStorage.getItem("usuarioLogado"));
     const id = usuario.id;
+    
+    let playlistsPrivadas = [];
+    axios.get(`http://localhost:3001/playlistsPrivadas?idUsuario=${id}`)
+        .then(response => {
+            playlistsPrivadas = response.data;
+            console.log(response.data)
+        })
+        .catch(error => {
+            console.error("Error fetching playlistsPrivadas:", error);
+        });
+    console.log(playlistsPrivadas);
 
     const [showInputs, setShowInputs] = useState(false);
     const [nomePlaylist, setNomePlaylist] = useState('');
@@ -17,27 +28,28 @@ function Perfil({ toggleEditarPerfil }) {
     };
 
     function cadastrarPlaylists() {
-        const novoUsuario = { ...usuario };
-        novoUsuario.playlists = novoUsuario.playlists || [];
 
-        const existe = novoUsuario.playlists.some((playlists) => playlists.nome == nomePlaylist);
+
+        //const playlistsUsuario = playlistsPrivadas.filter((playlist) => playlist.idUsuario == id);
+
+        const existe = playlistsPrivadas.some((playlists) => playlists.nome == nomePlaylist);
         if (!existe) {
-            
-            novoUsuario.playlists.push({ nome: nomePlaylist, musicas: musicasPlaylist });
+
+            playlistsPrivadas.push({ idUsuario: id, nome: nomePlaylist, musicas: musicasPlaylist });
 
         } else {
-            const editar = novoUsuario.playlists.find((playlists) => playlists.nome == nomePlaylist);
+            const editar = playlistsPrivadas.find((playlists) => playlists.nome == nomePlaylist);
             editar.musicas = musicasPlaylist;
-            const novoArray = novoUsuario.playlists.filter((playlist) => playlist.nome != editar.nome);
-            novoUsuario.playlists = novoArray;
-            novoUsuario.playlists.push({ nome: editar.nome, musicas: editar.musicas });
+            const novoArray = playlistsPrivadas.filter((playlist) => playlist.nome != editar.nome);
+            playlistsPrivadas = novoArray;
+            playlistsPrivadas.push({ nome: editar.nome, musicas: editar.musicas });
             // console.log(novoArray)
             // console.log(editar);
         }
 
-        localStorage.setItem("usuarioLogado", JSON.stringify(novoUsuario));
-        axios.put(`http://localhost:3001/usuarios/${id}`, novoUsuario);
-        
+
+        axios.put(`http://localhost:3001/playlistsPrivadas/${id}`, playlistsPrivadas);
+
     }
 
     function logout() {
@@ -177,7 +189,7 @@ function Perfil({ toggleEditarPerfil }) {
                 )}
             </div>
             <div className='Exibir-Playlists'>
-                {usuario.playlists.map(playlists => (
+                {playlistsPrivadas.map(playlists => (
                     <>
                         <h3>Playlist {playlists.nome}</h3>
                         {playlists.musicas.map(musica => (

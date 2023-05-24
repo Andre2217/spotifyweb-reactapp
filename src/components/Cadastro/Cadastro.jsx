@@ -34,8 +34,7 @@ function Cadastro() {
     axios.post('http://localhost:3001/usuarios',{
       nome:username,
       email:email,
-      senha:password,
-      playlists:[]
+      senha:password
     })
     }
   
