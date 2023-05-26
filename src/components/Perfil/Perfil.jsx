@@ -13,12 +13,12 @@ function Perfil({ toggleEditarPerfil }) {
         axios.get(`http://localhost:3001/playlistsPrivadas?idUsuario=${id}`)
         .then(response => {
             setPlaylistsPrivadas(response.data);
-            console.log(response.data)
+            
         })
         .catch(error => {
             console.error("Error fetching playlistsPrivadas:", error);
         });
-        console.log(playlistsPrivadas);
+        
     }, [])
     
     const [showInputs, setShowInputs] = useState(false);
@@ -117,6 +117,10 @@ function Perfil({ toggleEditarPerfil }) {
             setCurrentTrack(null);
         }
     };
+    //----------------****EDITAR PLAYLISTS****------------------------------
+    function editarPlaylists(id){
+        console.log(id)
+    }
 
 
     return (
@@ -193,7 +197,7 @@ function Perfil({ toggleEditarPerfil }) {
             <div className='Exibir-Playlists'>
                 {playlistsPrivadas.map(playlists => (
                     <>
-                        <h3>Playlist {playlists.nome}</h3>
+                        <h3>Playlist {playlists.nome} <button onClick={() => editarPlaylists(playlists.id)}>EDITAR</button></h3>
                         {playlists.musicas.map(musica => (
                             <li key={musica.id}>
                                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
