@@ -137,7 +137,7 @@ function EditarPlaylist() {
               </select>
             </div>
             <div className="form-group salvar">
-              <button type="submit" className="btn btn-primary">
+              <button type="submit" className="btn btn-primary" onClick={() => navigate('/perfil')}>
                 Salvar Alterações
               </button>
               <button
