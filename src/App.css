@@ -516,3 +516,33 @@ button {
 .not-perfil {
   text-align: center;
 }
+
+/* editar playlist */
+
+.nome-playlist {
+  margin-bottom: 25px;
+}
+
+.add-musicas {
+  margin-bottom: 25px;
+}
+
+.musicas-adc {
+  margin-bottom: 25px;
+}
+
+.salvar {
+  margin-left: 10px;
+} 
+
+.cancelar { 
+  margin-left: 10px;
+}
+
+.editarplaylist-content {
+  padding: 50px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
