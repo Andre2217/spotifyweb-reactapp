@@ -46,8 +46,12 @@ function EditarPlaylist() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    
-    //desenvolver função handlesubmit
+    const playlist1 = event.target.nomePlaylist.value;
+    console.log(playlist1);
+    axios.patch(`http://localhost:3001/playlistsPrivadas/${id}`,{
+      nome: nomePlaylist,
+      musicas: musicasAdicionadas
+    })
   }
 
   if (!usuario) {
@@ -137,7 +141,7 @@ function EditarPlaylist() {
               </select>
             </div>
             <div className="form-group salvar">
-              <button type="submit" className="btn btn-primary" onClick={() => navigate('/perfil')}>
+              <button type="submit" className="btn btn-primary">
                 Salvar Alterações
               </button>
               <button

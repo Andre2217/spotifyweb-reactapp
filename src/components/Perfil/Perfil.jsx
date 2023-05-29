@@ -32,25 +32,6 @@ function Perfil({ toggleEditarPerfil }) {
     };
 
     function cadastrarPlaylists() {
-
-
-        //const playlistsUsuario = playlistsPrivadas.filter((playlist) => playlist.idUsuario == id);
-
-        const existe = playlistsPrivadas.some((playlists) => playlists.nome == nomePlaylist);
-        if (existe) {
-
-            const editar = playlistsPrivadas.find((playlists) => playlists.nome == nomePlaylist);
-            editar.musicas = musicasPlaylist;
-            const novoArray = playlistsPrivadas.filter((playlist) => playlist.nome != editar.nome);
-            playlistsPrivadas = novoArray;
-            playlistsPrivadas.push({ nome: editar.nome, musicas: editar.musicas });
-            // console.log(novoArray)
-            // console.log(editar);
-            
-
-        } 
-
-
         axios.post(`http://localhost:3001/playlistsPrivadas`, {idUsuario: id, nome: nomePlaylist, musicas: musicasPlaylist});
 
     }
