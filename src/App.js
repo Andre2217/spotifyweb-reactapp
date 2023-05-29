@@ -5,6 +5,7 @@ import CadastroPage from './components/Cadastro/CadastroPage';
 import LoginPage from './components/Login/LoginPage';
 import Playlist from './components/Playlist/Playlist';
 import PerfilPage from './components/Perfil/PerfilPage';
+import EditarPlaylist from './components/Perfil/EditarPlaylist';
 import { BrowserRouter as Router,Routes, Route} from "react-router-dom";
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path="/cadastro" element={<CadastroPage/>} />
         <Route path="/login" element={<LoginPage/>}/>
         <Route path="/perfil" element={<PerfilPage/>}/>
+        <Route path="/editarPlaylist/:id" element={<EditarPlaylist/>}/>
         </Routes>
       </Router>
     </div>

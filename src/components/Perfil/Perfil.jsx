@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from "react";
 import { Card, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function Perfil({ toggleEditarPerfil }) {
     const usuario = JSON.parse(localStorage.getItem("usuarioLogado"));
@@ -117,10 +118,6 @@ function Perfil({ toggleEditarPerfil }) {
             setCurrentTrack(null);
         }
     };
-    //----------------****EDITAR PLAYLISTS****------------------------------
-    function editarPlaylists(id){
-        console.log(id)
-    }
 
 
     return (
@@ -197,7 +194,7 @@ function Perfil({ toggleEditarPerfil }) {
             <div className='Exibir-Playlists'>
                 {playlistsPrivadas.map(playlists => (
                     <>
-                        <h3>Playlist {playlists.nome} <button onClick={() => editarPlaylists(playlists.id)}>EDITAR</button></h3>
+                        <h3>Playlist {playlists.nome} <Link to={`/editarPlaylist/${playlists.id}`}>EDITAR</Link></h3>
                         {playlists.musicas.map(musica => (
                             <li key={musica.id}>
                                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
