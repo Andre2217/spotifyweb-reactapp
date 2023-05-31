@@ -577,7 +577,7 @@
     {
       "id": 1,
       "idUsuario": 1,
-      "nome": "teste8",
+      "nome": "teste9",
       "musicas": [
         {
           "id": 17,
@@ -586,16 +586,16 @@
           "track": "../sounds/The_Beatlhes_Help.mp3"
         },
         {
-          "id": 2,
-          "cantor": "Adele",
-          "nome": "Easy On Me",
-          "track": "../sounds/Adele_Easy_On_Me.mp3"
-        },
-        {
           "id": 1,
           "cantor": "Adele",
           "nome": "Set Fire to the Rain",
           "track": "../sounds/Adele_Set_fire_to_the_rain.mp3"
+        },
+        {
+          "id": 4,
+          "cantor": "Adele",
+          "nome": "Someone Like You",
+          "track": "../sounds/Adele_Someone_Like_You.mp3"
         }
       ]
     },

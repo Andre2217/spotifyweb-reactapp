@@ -51,7 +51,7 @@ function EditarPlaylist() {
     axios.patch(`http://localhost:3001/playlistsPrivadas/${id}`,{
       nome: nomePlaylist,
       musicas: musicasAdicionadas
-    })
+    }).then(navigate('/perfil'))
   }
 
   if (!usuario) {
