@@ -72,9 +72,9 @@ function Perfil({ toggleEditarPerfil }) {
                 return;
             }
             setSearchClicked(true);
-            const resposta = await axios.get(`http://localhost:3001/musicas`);
-            const resultadosFiltrados = resposta.data.filter(item => item.nome.toLowerCase().includes(pesquisa.toLowerCase()));//filtra todas as
-            //musicas que contem pesquisa
+            const resultadosFiltrados = await axios.get(`http://localhost:3001/musicas?nome=${pesquisa}`);
+            // const resultadosFiltrados = resposta.data.filter(item => item.nome.toLowerCase().includes(pesquisa.toLowerCase()));//filtra todas as
+            // //musicas que contem pesquisa
             setResultado(resultadosFiltrados);
             setSearchClicked(false);
         } catch (error) {
