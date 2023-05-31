@@ -12,16 +12,10 @@ function EditarPerfil({ usuario, toggleEditarPerfil }) {
   const id = usuario.id;
 
   useEffect(() => {
-    axios.get(`http://localhost:3001/usuarios/${id}`)
-      .then((response) => {
-        const { nome, email, senha } = response.data;
-        setNome(nome);
-        setEmail(email);
-        setSenha(senha);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    const usuario = JSON.parse(localStorage.getItem("usuarioLogado"));
+    setNome(usuario.nome);
+    setEmail(usuario.email);
+    setSenha(usuario.senha);
   }, [id]);
 
   function handleSubmit(event) {
