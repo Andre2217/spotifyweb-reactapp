@@ -14,12 +14,12 @@ function App() {
       <Router>
         <Routes>
         <Route path="/" element={<Home/>} />
-        <Route path="/playlist/:id" element={<Playlist/>}/>
+        <Route path="/playlist/:_id" element={<Playlist/>}/>
         <Route path="/faq" element={<FAQPage/>} />
         <Route path="/cadastro" element={<CadastroPage/>} />
         <Route path="/login" element={<LoginPage/>}/>
         <Route path="/perfil" element={<PerfilPage/>}/>
-        <Route path="/editarPlaylist/:id" element={<EditarPlaylist/>}/>
+        <Route path="/editarPlaylist/:_id" element={<EditarPlaylist/>}/>
         </Routes>
       </Router>
     </div>

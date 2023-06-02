@@ -23,9 +23,9 @@ function Login() {
     e.preventDefault();
 
     axios.get(`http://localhost:3001/usuarios?email=${email}`).then((resultado) => {
-      const usuario = resultado.data[0];
-
-      if (!usuario || usuario.senha !== senha) {
+      const usuario = resultado.data;
+      console.log(usuario)
+      if (!usuario || usuario.senha != senha) {
         setError('Usuário ou senha inválidos');
         return;
       }

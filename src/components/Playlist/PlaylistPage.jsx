@@ -5,13 +5,13 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 function PlaylistPage() {
-  let { id } = useParams();
+  let { _id } = useParams();
 
   const [currentTrack, setCurrentTrack] = useState(null);
   const [playlist, setPlaylist] = useState({musicas:[]})
 
   useEffect(() =>{
-    axios.get(`http://localhost:3001/playlists/${id}`)
+    axios.get(`http://localhost:3001/playlists/${_id}`)
       .then((res)=>setPlaylist(res.data))
   }, [])
 

@@ -36,7 +36,7 @@ function Carrosel() {
             {playlists.map(image => (
               <motion.div className='item' key={image}>
                   <img src ={image.capa} alt="texto alt"/>
-                <Link to={`/playlist/${image.id}`}>
+                <Link to={`/playlist/${image._id}`}>
                   <button className='botao-playlist'>Acessar Playlist</button>
                 </Link>
               </motion.div>
