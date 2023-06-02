@@ -9,7 +9,7 @@ function EditarPerfil({ usuario, toggleEditarPerfil }) {
   const [mensagem, setMensagem] = useState('');
   const navigate = useNavigate();
 
-  const id = usuario.id;
+  const id = usuario._id;
 
   useEffect(() => {
     const usuario = JSON.parse(localStorage.getItem("usuarioLogado"));
