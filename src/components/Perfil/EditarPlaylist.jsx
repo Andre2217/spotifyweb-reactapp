@@ -38,14 +38,12 @@ function EditarPlaylist() {
 
   function handleRemoveMusica(musica) {
     setMusicasAdicionadas((prevMusicas) =>
-      prevMusicas.filter((m) => m.id !== musica.id)
+      prevMusicas.filter((m) => m._id !== musica.id)
     );
   }
 
   function handleSubmit(event) {
     event.preventDefault();
-    const playlist1 = event.target.nomePlaylist.value;
-    console.log(playlist1);
     axios.patch(`http://localhost:3001/playlistsPrivadas/${id}`,{
       nome: nomePlaylist,
       musicas: musicasAdicionadas
@@ -105,7 +103,7 @@ function EditarPlaylist() {
                 onChange={(event) =>
                   handleAddMusica(
                     musicasDisponiveis.find(
-                      (musica) => musica.id === parseInt(event.target.value)
+                      (musica) => musica.nome === event.target.value
                     )
                   )
                 }
@@ -126,7 +124,7 @@ function EditarPlaylist() {
                 onChange={(event) =>
                   handleRemoveMusica(
                     musicasAdicionadas.find(
-                      (musica) => musica.id === parseInt(event.target.value)
+                      (musica) => musica.nome === event.target.value
                     )
                   )
                 }
