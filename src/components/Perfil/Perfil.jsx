@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom';
 
 function Perfil({ toggleEditarPerfil }) {
     const usuario = JSON.parse(localStorage.getItem("usuarioLogado"));
-    const id = usuario.id;
-
+    const id = usuario._id;
+    
     let [playlistsPrivadas, setPlaylistsPrivadas] = useState([]);
 
     useEffect( () => {
@@ -32,7 +32,7 @@ function Perfil({ toggleEditarPerfil }) {
     };
 
     function cadastrarPlaylists() {
-        axios.post(`http://localhost:3001/playlistsPrivadas`, {idUsuario: id, nome: nomePlaylist, musicas: musicasPlaylist});
+        axios.post(`http://localhost:3001/usuarios/${id}/playlistsPrivadas`, {idUsuario: id, nome: nomePlaylist, musicas: musicasPlaylist});
 
     }
 
