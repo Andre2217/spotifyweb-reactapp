@@ -166,7 +166,7 @@ function Perfil({ toggleEditarPerfil }) {
                         {resultado.map((result, index) => (
                             <div key={index}>
                                 <p className='resultado-pesquisa-p'>Nome da musica: {result.nome} by {result.cantor}</p>
-                                <button className='resultado-pesquisa-button' onClick={() => adicionarMusicas(result.id)}>Adicionar a playlist</button>
+                                <button className='resultado-pesquisa-button' onClick={() => adicionarMusicas(result._id)}>Adicionar a playlist</button>
                             </div>
                         ))}
                         <button className='cadastrar-playlist' onClick={() => cadastrarPlaylists()}>Cadastrar Playlist</button>
