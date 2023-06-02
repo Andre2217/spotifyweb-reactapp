@@ -37,8 +37,9 @@ function EditarPlaylist() {
   }
 
   function handleRemoveMusica(musica) {
+    console.log(musica)
     setMusicasAdicionadas((prevMusicas) =>
-      prevMusicas.filter((m) => m._id !== musica.id)
+      prevMusicas.filter((m) => m.nome !== musica.nome)
     );
   }
 
