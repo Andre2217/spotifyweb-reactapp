@@ -11,7 +11,6 @@ function EditarPlaylist() {
   const usuario = JSON.parse(localStorage.getItem('usuarioLogado'));
   const navigate = useNavigate();
 
-  const [playlist, setPlaylist] = useState({ musicas: [] });
   const [nomePlaylist, setNomePlaylist] = useState('');
   const [musicasAdicionadas, setMusicasAdicionadas] = useState([]);
   const [musicasDisponiveis, setMusicasDisponiveis] = useState([]);
@@ -23,7 +22,6 @@ function EditarPlaylist() {
     axios
       .get(`http://localhost:3001/playlistsPrivadas/${id}`)
       .then((res) => {
-        setPlaylist(res.data);
         setNomePlaylist(res.data.nome);
         setMusicasAdicionadas(res.data.musicas);
       });
