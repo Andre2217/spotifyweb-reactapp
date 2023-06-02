@@ -19,7 +19,7 @@ function App() {
         <Route path="/cadastro" element={<CadastroPage/>} />
         <Route path="/login" element={<LoginPage/>}/>
         <Route path="/perfil" element={<PerfilPage/>}/>
-        <Route path="/editarPlaylist/:_id" element={<EditarPlaylist/>}/>
+        <Route path="/editarPlaylist/:id" element={<EditarPlaylist/>}/>
         </Routes>
       </Router>
     </div>

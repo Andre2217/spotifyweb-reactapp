@@ -176,7 +176,7 @@ function Perfil({ toggleEditarPerfil }) {
             <div className='Exibir-Playlists'>
                 {playlistsPrivadas.map(playlists => (
                     <>
-                        <h3>Playlist {playlists.nome} <Link to={`/editarPlaylist/${playlists.id}`}>EDITAR</Link></h3>
+                        <h3>Playlist {playlists.nome} <Link to={`/editarPlaylist/${playlists._id}`}>EDITAR</Link></h3>
                         {playlists.musicas.map(musica => (
                             <li key={musica.id}>
                                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
